@@ -1,0 +1,118 @@
+#order_form_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cart_table th{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+td,tr{
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.manage_label{
+    color: purple;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.form_div {
+    width: 40vw;
+    height: 80vh; /* Set a fixed height for the form container */
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Make the form container scrollable */
+}
+
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    height: 90%;
+    border: 1px solid grey;
+    background-color: darkgray;
+    border-radius: 5px;
+}
+
+input[type="text"], [type="date"], #customer_id_combo_box{
+    width: 350px;
+    height: 25px;
+    border-radius: 7px;
+    border: 0;
+}
+
+
+#add_customer,#add_item, #add_order{
+    width: 100px;
+    height: 30px;
+    background-color: mediumpurple;
+    border-radius: 10px;
+    border: 1px solid rebeccapurple;
+}
+
+#update_customer,#update_item{
+    width: 100px;
+    height: 30px;
+    background-color: #90ee90;
+    border-radius: 10px;
+    border: 1px solid #228b22 ;
+}
+
+#delete_customer, #delete_item{
+    width: 100px;
+    height: 30px;
+    background-color: #fa8072 ;
+    border-radius: 10px;
+    border: 1px solid #ff6347;
+}
+
+#add_customer, #add_item:hover{
+    background-color: #6a5acd ;
+}
+
+#update_customer,#update_item:hover{
+    background-color: #228b22 ;
+}
+
+#delete_customer,#delete_item:hover{
+    background-color: #ff6347;
+}
+
+@media screen and (max-width: 720px) {
+    .form_div {
+        width: 90vw;
+        /*height: 70vh;*/
+    }
+
+    .myForm{
+
+    }
+    input[type="text"]{
+        width: 200px;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    .form_div {
+        width: 60vw;
+        /*height: 70vh;*/
+    }
+
+    input[type="text"]{
+        width: 320px;
+    }
+}
+
