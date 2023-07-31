@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>POS System</title>
 
-    <link rel="stylesheet" href="assert/style_sheets/customer.css">
+    <link rel="stylesheet" href="assert/style_sheets/style.css">
 
       <link href="assert/bootstrap/css/bootstrap.css" rel="stylesheet">
       <link href="assert/fontawesome/css/all.min.css" rel="stylesheet">
@@ -56,13 +56,13 @@
             <form class="myForm" id="customer_form">
                 <label class="manage_label">Customer Manage</label><br><br>
                 <div>
-                    <label for="cust_id">Customer ID : </label><br>
-                    <input type="text" id="cust_id" name="cust_id" required><br><br>
+                    <label for="id">Customer ID : </label><br>
+                    <input type="text" id="id" name="id" required><br><br>
                 </div>
 
                 <div>
-                    <label for="cust_name">Name : </label><br>
-                    <input type="text" id="cust_name" name="cust_name" required><br><br>
+                    <label for="name">Name : </label><br>
+                    <input type="text" id="name" name="name" required><br><br>
                 </div>
 
                 <div>
@@ -137,7 +137,7 @@
 
 
 
-    <!--====================================================================================================================-->
+    <!--=============================================================-->
 
     <section id="order_form_section">
 
@@ -190,56 +190,12 @@
     </section>
 
 </section>
-<!--=================================================  script  ===================================================================-->
 
+
+<!--==========================  script  ===============================-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="assert/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-<!--           add customer-->
-<script>
-    document.getElementById("customer_form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent form submission
-
-        // Get form data
-        const id = document.getElementById("cust_id").value;
-        const name = document.getElementById("cust_name").value;
-        const address = document.getElementById("address").value;
-        const salary = document.getElementById("salary").value;
-
-
-        const customer = {
-            id: id,
-            name: name,
-            address: address,
-            salary: salary
-        };
-
-        console.log(JSON.stringify(customer));
-
-        // Send POST request to the backend directly
-        fetch("http://localhost:8080/demo1/customer", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(customer) // Ensure the data is sent as an object, not an array
-        })
-
-            .then(response => response.text())
-            .then(data => {
-                console.log(data); // Log the response from the server
-                // Perform any further actions as needed
-            })
-            .catch(error => {
-                console.log(error); // Log any errors that occurred
-            });
-
-        // Reset the form
-        document.getElementById("customer_form").reset();
-    });
-</script>
-
-
+<script src="js/Customer.js"></script>
 
 </body>
 </html>
