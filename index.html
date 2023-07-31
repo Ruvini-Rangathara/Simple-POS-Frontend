@@ -135,6 +135,60 @@
     <br>
     <br>
 
+
+
+    <!--====================================================================================================================-->
+
+    <section id="order_form_section">
+
+        <div class="form_div">
+            <form class="myForm">
+                <label class="manage_label">Order Manage</label><br><br>
+                <div>
+                    <label for="order_id">Order Id : </label><br>
+                    <input type="text" id="order_id" name="order_id" required><br><br>
+                </div>
+
+                <div>
+                    <label for="date">Date : </label><br>
+                    <input type="date" id="date" name="date" required><br><br>
+                </div>
+
+                <div>
+                    <label for="customer_id_combo_box">Customer Id : </label><br>
+                    <select id="customer_id_combo_box" name="customer_id_combo_box">
+                        <!-- The options will be populated dynamically using JavaScript -->
+                    </select>
+                </div>
+                <br>
+
+                <div>
+                    <button id="add_order">Add</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div>
+            <!-- Cart Table Section -->
+            <section id="cart_section">
+                <h2 id="cart_h2">Cart</h2>
+                <table id="cart_table" style="border-collapse: collapse; width: 100%; border: 1px solid black;">
+                    <tr>
+                        <th>Item Code</th>
+                        <th>Description</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                    </tr>
+
+                    <!-- The table rows will be populated dynamically using JavaScript -->
+                </table>
+            </section>
+        </div>
+
+
+    </section>
+
 </section>
 <!--=================================================  script  ===================================================================-->
 
