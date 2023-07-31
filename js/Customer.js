@@ -27,7 +27,6 @@
         }
     });
 
-
 //===============================================================================
 $('#add_customer').on('click', function(event) {
         event.preventDefault(); // Prevent the default form submission
@@ -122,27 +121,3 @@ $('#delete_customer').on('click',(e)=> {
     });
 });
 
-// ===========================================================================
-//     $('#id').on('change', function() {
-//         // Get the customer ID from the form
-//         let custId = $("#id").val();
-//
-//         // Send the AJAX request to the backend using the GET method
-//         $.ajax({
-//             type: "GET",
-//             url: "http://localhost:8080/demo1/customer?id=" + custId, // Replace with the actual URL of your backend API endpoint for getting customer data
-//             dataType: "json",
-//             success: function (customerData) {
-//                 // Populate the form with the received JSON data
-//                 $("#name").val(customerData.name);
-//                 $("#address").val(customerData.address);
-//                 $("#salary").val(customerData.salary);
-//
-//                 console.log("Customer data retrieved successfully:", customerData);
-//             },
-//             error: function (error) {
-//                 // Handle any errors that occurred during the AJAX request (if needed)
-//                 console.error("Error while retrieving customer data: ", error);
-//             }
-//         });
-//     });
