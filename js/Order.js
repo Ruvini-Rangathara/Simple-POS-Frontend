@@ -250,3 +250,30 @@ function clearFields (){
 
 //======================================================================================
 
+// Highlight the clicked row in the cart table
+$(document).on("click", "#cartTable tbody tr", function() {
+    $(this).toggleClass("highlight");
+});
+
+// Add click event listener to the cart table rows
+$('#cartTable tbody').on("click", "tr", function(event) {
+    // Remove any previously selected rows' highlighting
+    $("#cartTable tbody tr").removeClass("selected");
+
+    // Add highlighting to the clicked row
+    $(this).addClass("selected");
+});
+
+// Add click event listener to the "Remove from Cart" button
+$("#remove_from_cart").on("click", function(event) {
+    // Get the selected row from the cart table
+    const selectedRow = $("#cartTable tbody tr.selected");
+
+    if (selectedRow.length === 0) {
+        alert("Please select a row to remove from the cart.");
+        return;
+    }
+
+    // Remove the selected row from the cart table
+    selectedRow.remove();
+});

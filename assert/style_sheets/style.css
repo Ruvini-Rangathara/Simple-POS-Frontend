@@ -1,3 +1,8 @@
+/* CSS to highlight the clicked row */
+.highlight {
+    background-color: #f0f0f0;
+}
+
 .hr_div{
     display: flex;
     align-items: center;
@@ -173,6 +178,13 @@ input[type="text"], [type="date"], #customer_id_combo_box, #cart_item_code{
     border: 0;
 }
 
+#add_cart_btn_div{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
 
 #add_customer,#add_item, #confirm_order{
     width: 100px;
@@ -190,7 +202,7 @@ input[type="text"], [type="date"], #customer_id_combo_box, #cart_item_code{
     border: 1px solid #228b22 ;
 }
 
-#delete_customer, #delete_item{
+#delete_customer, #delete_item, #remove_from_cart{
     width: 100px;
     height: 30px;
     background-color: #fa8072 ;
@@ -206,7 +218,7 @@ input[type="text"], [type="date"], #customer_id_combo_box, #cart_item_code{
     background-color: #228b22 ;
 }
 
-#delete_customer:hover ,#delete_item:hover{
+#delete_customer:hover ,#delete_item:hover, #remove_from_cart:hover{
     background-color: #ff6347;
 }
 
@@ -250,10 +262,18 @@ input[type="text"], [type="date"], #customer_id_combo_box, #cart_item_code{
         width: 200px;
     }
 
+    #add_cart_btn_div{
+        display: flex;
+        flex-direction: column;
+    }
 
     #cart_form_first_div{
         display: flex;
         flex-direction: column;
+    }
+
+    #remove_from_cart{
+        margin-top: 20px;
     }
 
 }
