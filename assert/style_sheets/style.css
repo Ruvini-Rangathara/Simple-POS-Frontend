@@ -23,7 +23,19 @@
 
 #customer_table_id, #item_table_id{
     margin-top: 100px;
+    height: 375px; /* Set a fixed height for the table container */
+    overflow-y: auto; /* Enable vertical scrollbar for extra content */
+
 }
+
+#customer_table_id thead, #item_table_id thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #dda0dd;
+    table-layout: fixed; /* Prevent table header from resizing */
+}
+
 
 #customerTable, #itemTable {
     border-collapse: collapse;
