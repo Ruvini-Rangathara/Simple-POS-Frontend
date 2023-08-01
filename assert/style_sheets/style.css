@@ -1,20 +1,37 @@
-#customer_form_section{
+#main_section{
+    background-color: #cec8ef;
+    padding-top: 50px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
+}
+
+
+#customer_form_section, #item_form_section, #order_form_section{
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 20px;
+
     display: flex;
     justify-content: space-around;
     padding-right: 75px;
+
+    background-color: #e0b0ff;
 }
 
-#customer_table_id{
+#customer_table_id, #item_table_id{
     margin-top: 100px;
 }
 
-#customerTable {
+#customerTable, #itemTable {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
 }
 
-#customerTable th, #customerTable td {
+#customerTable th, #customerTable td, #itemTable th, #itemTable td {
     border: 1px solid black;
     padding: 1px;
     text-align: center;
@@ -142,3 +159,13 @@ input[type="text"], [type="date"], #customer_id_combo_box{
     }
 }
 
+@media screen and (max-width: 1000px) {
+    #customer_form_section, #item_form_section, #order_form_section{
+        display: flex;
+        flex-direction: column;
+        padding-right: 50px;
+        padding-left: 50px;
+
+    }
+
+}

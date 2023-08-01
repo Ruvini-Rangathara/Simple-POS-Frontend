@@ -50,6 +50,8 @@ $('#add_item').on('click', function(event) {
         success: function (response) {
             // Handle the response from the backend (if needed)
             console.log("Save successful!");
+            clearItemsTable();
+            loadAllItems();
             $("#item_form")[0].reset();
         },
         error: function (error) {
@@ -80,6 +82,8 @@ $('#update_item').on('click',(e)=> {
         contentType: "application/json",
         success: function (response) {
             // Handle the response from the backend (if needed)
+            clearItemsTable();
+            loadAllItems();
             console.log("Update successful!");
             $("#item_form")[0].reset();
         },
@@ -112,6 +116,8 @@ $('#delete_item').on('click',(e)=> {
         success: function (response) {
             // Handle the response from the backend (if needed)
             console.log("Delete successful!");
+            clearItemsTable();
+            loadAllItems();
             $("#item_form")[0].reset();
         },
         error: function (error) {
@@ -121,3 +127,34 @@ $('#delete_item').on('click',(e)=> {
     });
 });
 
+// ===========================================================================
+
+function loadAllItems() {
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/demo1/item",
+        dataType: "json",
+        success: function (itemsData) {
+            // Loop through the received JSON array of customers and add rows to the table
+            for (let i = 0; i < itemsData.length; i++) {
+                let item = itemsData[i];
+                // Replace the following line with your desired logic to populate the customer table
+                // For example, you can use jQuery to add a row to an existing table
+                $("#itemTable tbody").append("<tr><td>" + item.code+ "</td><td>" + item.description + "</td><td>" + item.unitPrice + "</td><td>" + item.qtyOnHand + "</td></tr>");
+            }
+        },
+        error: function (error) {
+            // Handle any errors that occurred during the AJAX request (if needed)
+            console.error("Error while retrieving item data: ", error);
+        }
+    });
+}
+
+// Call the function to load all items when the page loads
+loadAllItems();
+
+// =========================================================
+function clearItemsTable() {
+    // Clear the table rows from the <tbody> element
+    $("#itemTable tbody").empty();
+}
