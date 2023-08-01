@@ -129,9 +129,36 @@ $(document).on("change", "#cart_item_code", function(event) {
             console.error("Error while retrieving item data: ", error);
         }
     });
-    //
-    // // Clear the values of other form fields when a new item code is selected
-    // $("#cart_description").val("");
-    // $("#cart_qty_on_hand").val("");
-    // $("#cart_unit_price").val("");
+
 });
+
+// ===================================================================================
+
+    // Add event listener to the "Add to Cart" button
+    $("#add_to_cart").on("click", function(event) {
+        event.preventDefault();
+
+        console.log("Add to cart Button clicked!");
+
+        // Get the values from the form fields
+        let itemCode = $('#cart_item_code').val();
+        let description = $('#cart_description').val();
+        let unitPrice = $('#cart_unit_price').val();
+        let quantity = $('#cart_qty').val();
+
+        // Create a new row for the cart table
+        let newRow = "<tr><td>" + itemCode + "</td><td>" + description + "</td><td>" + unitPrice + "</td><td>" + quantity + "</td></tr>";
+
+        // Append the new row to the table body
+        $("#cartTable tbody").append(newRow);
+
+        // Clear the form fields for the next entry
+        $("#cart_item_code").val("");
+        $("#cart_description").val("");
+        $("#cart_unit_price").val("");
+        $("#cart_qty").val("");
+        $("#cart_qty_on_hand").val("");
+    });
+
+// ====================================================================================
+
