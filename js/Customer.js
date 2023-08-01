@@ -50,6 +50,8 @@ $('#add_customer').on('click', function(event) {
             success: function (response) {
                 // Handle the response from the backend (if needed)
                 console.log("Save successful!");
+                clearCustomerTable();
+                loadAllCustomers();
                 $("#customer_form")[0].reset();
             },
             error: function (error) {
@@ -57,7 +59,7 @@ $('#add_customer').on('click', function(event) {
                 console.error("Save failed: ", error);
             }
         });
-    });
+});
 
 // ===========================================================================
 $('#update_customer').on('click',(e)=> {
@@ -81,6 +83,8 @@ $('#update_customer').on('click',(e)=> {
         success: function (response) {
             // Handle the response from the backend (if needed)
             console.log("Update successful!");
+            clearCustomerTable();
+            loadAllCustomers();
             $("#customer_form")[0].reset();
         },
         error: function (error) {
@@ -112,6 +116,8 @@ $('#delete_customer').on('click',(e)=> {
         success: function (response) {
             // Handle the response from the backend (if needed)
             console.log("Delete successful!");
+            clearCustomerTable();
+            loadAllCustomers();
             $("#customer_form")[0].reset();
         },
         error: function (error) {
@@ -121,3 +127,34 @@ $('#delete_customer').on('click',(e)=> {
     });
 });
 
+// ===============================================================================
+
+    function loadAllCustomers() {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/demo1/customer", // Replace with the actual URL of your backend API endpoint for getting all customers
+            dataType: "json",
+            success: function (customersData) {
+                // Loop through the received JSON array of customers and add rows to the table
+                for (let i = 0; i < customersData.length; i++) {
+                    let customer = customersData[i];
+                    // Replace the following line with your desired logic to populate the customer table
+                    // For example, you can use jQuery to add a row to an existing table
+                    $("#customerTable tbody").append("<tr><td>" + customer.id+ "</td><td>" + customer.name + "</td><td>" + customer.address + "</td><td>" + customer.salary + "</td></tr>");
+                }
+            },
+            error: function (error) {
+                // Handle any errors that occurred during the AJAX request (if needed)
+                console.error("Error while retrieving customer data: ", error);
+            }
+        });
+    }
+
+    // Call the function to load all customers when the page loads
+    loadAllCustomers();
+
+    // =========================================================
+    function clearCustomerTable() {
+        // Clear the table rows from the <tbody> element
+        $("#customerTable tbody").empty();
+    }

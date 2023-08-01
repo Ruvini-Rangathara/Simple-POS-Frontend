@@ -59,30 +59,42 @@
                     <label for="id">Customer ID : </label><br>
                     <input type="text" id="id" name="id" required><br><br>
                 </div>
-
                 <div>
                     <label for="name">Name : </label><br>
                     <input type="text" id="name" name="name" required><br><br>
                 </div>
-
                 <div>
                     <label for="address">Address : </label><br>
                     <input type="text" id="address" name="address" required><br><br>
                 </div>
-
                 <div>
                     <label for="salary">Salary : </label><br>
                     <input type="text" id="salary" name="salary" required><br><br>
                 </div>
-
                 <div>
                     <button id="add_customer">Add</button>
                     <button id="update_customer">Update</button>
                     <button id="delete_customer">Delete</button>
                 </div>
-
             </form>
         </div>
+
+        <div id="customer_table_id">
+            <table id="customerTable">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Customer data will be populated here using JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
     </section>
 
     <br>
