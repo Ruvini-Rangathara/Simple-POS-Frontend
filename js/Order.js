@@ -1,5 +1,6 @@
 // Function to load customer IDs into the combo box
 function loadCustomerIDs() {
+
     // Send an AJAX GET request to the backend to retrieve customer data
     $.ajax({
         type: "GET",
@@ -23,6 +24,10 @@ function loadCustomerIDs() {
 
                 // Add the option to the combo box
                 customerComboBox.appendChild(option);
+
+                // Clear the selected value of the combo box
+                $("#customer_id_combo_box").val("");
+
             }
         },
         error: function(error) {
@@ -67,6 +72,7 @@ $(document).on("change", "#customer_id_combo_box", function(event) {
 
 // Function to load customer IDs into the combo box
 function loadItemCodes() {
+
     // Send an AJAX GET request to the backend to retrieve customer data
     $.ajax({
         type: "GET",
@@ -90,6 +96,10 @@ function loadItemCodes() {
 
                 // Add the option to the combo box
                 itemComboBox.appendChild(option);
+
+                // Clear the selected value of the combo box
+                $("#cart_item_code").val("");
+
             }
         },
         error: function(error) {
