@@ -1,6 +1,38 @@
+.hr_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome_label_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome_label{
+    font-size: 25px;
+    color: #915c83;
+}
+
+hr {
+    background-color: purple;
+    width: 80%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border : 1px solid purple;
+}
+
+#nav_container_div{
+    width: 100vw;
+    position: fixed;
+    z-index: 10;
+}
+
 #main_section{
     background-color: #cec8ef;
-    padding-top: 50px;
+    padding-top: 100px;
 }
 
 ::-webkit-scrollbar {
@@ -25,7 +57,7 @@
 }
 
 #main_section{
-    padding-bottom: 50px;
+    padding-bottom: 25px;
 }
 
 #customer_table_id, #item_table_id, #cart_table_id{
@@ -194,6 +226,19 @@ input[type="text"], [type="date"], #customer_id_combo_box, #cart_item_code{
     justify-content: center;
 }
 
+#footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer_p {
+    color: #915c83;
+    opacity: 90%;
+}
+
+
 @media screen and (max-width: 720px) {
     .form_div {
         width: 90vw;
@@ -244,3 +289,4 @@ input[type="text"], [type="date"], #customer_id_combo_box, #cart_item_code{
         padding-right: 25px;
     }
 }
+

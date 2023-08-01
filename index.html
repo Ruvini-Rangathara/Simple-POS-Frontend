@@ -30,23 +30,34 @@
 
 <!--========================================================================================================================-->
 
-<nav class="navbar navbar-expand-md bg-body py-3">
-  <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon">
+<div id="nav_container_div">
+    <nav class="navbar navbar-expand-md bg-body py-3">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon">
         <img id= "logo" src="assert/images/cart_logo-removebg-preview.png"></span><span>POS System</span></a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-2">
-      <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-    <div id="navcol-2" class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">Customer</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Item</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Order</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-2">
+                <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div id="navcol-2" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#customer_hr">Customer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#item_hr">Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#order_hr">Order</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 <!--=====================================================================================================================-->
 <section id="main_section">
+
+    <div id="welcome_label_div">
+        <label id="welcome_label">Welcome To POS System</label>
+    </div>
+
+    <div class="hr_div" id="customer_hr">
+        <hr>
+    </div>
+    <br>
+    <br>
 
     <section id="customer_form_section">
 
@@ -98,11 +109,14 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-
 
     <!--====================================================================================================================-->
+    <div class="hr_div" id="item_hr">
+        <hr>
+    </div>
+    <br>
+    <br>
+    <br>
 
     <section id="item_form_section">
 
@@ -158,11 +172,14 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-
 
     <!--=============================================================-->
+    <div class="hr_div" id="order_hr">
+        <hr>
+    </div>
+    <br>
+    <br>
+    <br>
 
     <section id="order_form_section">
 
@@ -265,8 +282,19 @@
 
     </section>
 
-</section>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <div id="footer">
+            <hr>
+            <p id="footer_p">Copyright &#169;. All right reserved.</p>
+        </div>
 
+    </footer>
+
+
+</section>
 
 <!--==========================  script  ===============================-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
