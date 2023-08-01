@@ -38,3 +38,27 @@ loadCustomerIDs();
 
 // ============================================================================
 
+
+// Add event listener to the combo box to fetch customer data on value change
+$(document).on("change", "#customer_id_combo_box", function(event) {
+    console.log('trigger customer name method');
+    // Get the customer ID from the selected option in the combo box
+    let custId = $("#customer_id_combo_box").val();
+
+    // Send the AJAX request to the backend using the GET method
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/demo1/customer?id=" + custId, // Replace with the actual URL of your backend API endpoint for getting customer data
+        dataType: "json",
+        success: function(customerData) {
+            // Populate the form with the received JSON data
+            $("#order_customer_name").val(customerData.name);
+
+            console.log("Customer data retrieved successfully:", customerData);
+        },
+        error: function(error) {
+            // Handle any errors that occurred during the AJAX request (if needed)
+            console.error("Error while retrieving customer data: ", error);
+        }
+    });
+});
