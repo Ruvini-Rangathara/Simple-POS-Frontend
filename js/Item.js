@@ -89,3 +89,35 @@ $('#update_item').on('click',(e)=> {
         }
     });
 });
+
+// ===========================================================================
+$('#delete_item').on('click',(e)=> {
+    e.preventDefault(); // Prevent the default form submission
+    // Get form data and convert it to a JSON object
+    let formData = {
+        "code": $("#item_code").val(),
+        "description": $("#description").val(),
+        "unitPrice": $("#unit_price").val(),
+        "qtyOnHand": $("#qty_on_hand").val()
+    };
+
+    console.log(JSON.stringify(formData));
+
+    // Send the AJAX request to the backend using the doPut method
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:8080/demo1/item",
+        data: JSON.stringify(formData),
+        contentType: "application/json",
+        success: function (response) {
+            // Handle the response from the backend (if needed)
+            console.log("Delete successful!");
+            $("#item_form")[0].reset();
+        },
+        error: function (error) {
+            // Handle any errors that occurred during the AJAX request (if needed)
+            console.error("Delete failed: ", error);
+        }
+    });
+});
+
