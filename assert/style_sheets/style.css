@@ -8,7 +8,6 @@
     background-color: transparent;
 }
 
-
 #customer_form_section, #item_form_section, #order_form_section{
     margin-left: 50px;
     margin-right: 50px;
@@ -21,14 +20,26 @@
     background-color: #e0b0ff;
 }
 
-#customer_table_id, #item_table_id{
+#order_form_section .form_div{
+    margin-top: 0;
+}
+
+#main_section{
+    padding-bottom: 50px;
+}
+
+#customer_table_id, #item_table_id, #cart_table_id{
     margin-top: 100px;
     height: 375px; /* Set a fixed height for the table container */
     overflow-y: auto; /* Enable vertical scrollbar for extra content */
-
 }
 
-#customer_table_id thead, #item_table_id thead {
+#cart_table_id{
+    margin-top: 30px;
+    height: 300px;
+}
+
+#customer_table_id thead, #item_table_id thead, #cart_table_id thead {
     position: sticky;
     top: 0;
     z-index: 1;
@@ -37,13 +48,13 @@
 }
 
 
-#customerTable, #itemTable {
+#customerTable, #itemTable, #cartTable {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
 }
 
-#customerTable th, #customerTable td, #itemTable th, #itemTable td {
+#customerTable th, #customerTable td, #itemTable th, #itemTable td, #cartTable th, #cartTable td {
     border: 1px solid black;
     padding: 1px;
     text-align: center;
@@ -63,6 +74,28 @@ th{
 }
 
 #order_form_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cart_form_first_div{
+    display: flex;
+}
+
+#cart_form{
+    background-color: #cec8ef;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+
+#cart_form #cart_item_code, #cart_description, #cart_unit_price, #cart_unit_price, #cart_qty_on_hand, #cart_qty{
+    width: 170px;
+    margin: 5px 7px 15px 5px;
+}
+
+#add_cart_btn_div{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +122,7 @@ th{
 }
 
 
-form {
+.myForm {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,7 +134,7 @@ form {
     border-radius: 5px;
 }
 
-input[type="text"], [type="date"], #customer_id_combo_box{
+input[type="text"], [type="date"], #customer_id_combo_box, #cart_item_code{
     width: 350px;
     height: 25px;
     border-radius: 7px;
@@ -109,7 +142,7 @@ input[type="text"], [type="date"], #customer_id_combo_box{
 }
 
 
-#add_customer,#add_item, #add_order{
+#add_customer,#add_item, #confirm_order{
     width: 100px;
     height: 30px;
     background-color: mediumpurple;
@@ -117,7 +150,7 @@ input[type="text"], [type="date"], #customer_id_combo_box{
     border: 1px solid rebeccapurple;
 }
 
-#update_customer,#update_item{
+#update_customer,#update_item, #add_to_cart{
     width: 100px;
     height: 30px;
     background-color: #90ee90;
@@ -133,16 +166,32 @@ input[type="text"], [type="date"], #customer_id_combo_box{
     border: 1px solid #ff6347;
 }
 
-#add_customer, #add_item:hover{
+#add_customer:hover , #add_item:hover, #confirm_order:hover{
     background-color: #6a5acd ;
 }
 
-#update_customer,#update_item:hover{
+#update_customer:hover ,#update_item:hover, #add_to_cart:hover{
     background-color: #228b22 ;
 }
 
-#delete_customer,#delete_item:hover{
+#delete_customer:hover ,#delete_item:hover{
     background-color: #ff6347;
+}
+
+#confirm_order{
+    width: fit-content;
+}
+
+#cart_head{
+    padding-top: 20px;
+    font-size: 30px;
+}
+
+#cart_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 720px) {
@@ -151,11 +200,15 @@ input[type="text"], [type="date"], #customer_id_combo_box{
         /*height: 70vh;*/
     }
 
-    .myForm{
 
-    }
     input[type="text"]{
         width: 200px;
+    }
+
+
+    #cart_form_first_div{
+        display: flex;
+        flex-direction: column;
     }
 
 }
@@ -169,6 +222,13 @@ input[type="text"], [type="date"], #customer_id_combo_box{
     input[type="text"]{
         width: 320px;
     }
+    #order_form_section{
+        padding-right: 25px;
+    }
+
+    #order_id, #date, #customer_id_combo_box, #order_customer_name{
+        width: 250px;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -180,4 +240,7 @@ input[type="text"], [type="date"], #customer_id_combo_box{
 
     }
 
+    #order_form_section{
+        padding-right: 25px;
+    }
 }

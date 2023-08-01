@@ -20,8 +20,8 @@
 
   <style>
     #logo{
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
     }
   </style>
 
@@ -32,7 +32,7 @@
 
 <nav class="navbar navbar-expand-md bg-body py-3">
   <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon">
-        <img id= "logo" src="assert/images/new_logo-removebg-preview.png"></span><span>POS System</span></a>
+        <img id= "logo" src="assert/images/cart_logo-removebg-preview.png"></span><span>POS System</span></a>
     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-2">
       <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
     <div id="navcol-2" class="collapse navbar-collapse">
@@ -44,8 +44,6 @@
     </div>
   </div>
 </nav>
-
-
 
 <!--=====================================================================================================================-->
 <section id="main_section">
@@ -164,7 +162,6 @@
     <br>
 
 
-
     <!--=============================================================-->
 
     <section id="order_form_section">
@@ -186,12 +183,18 @@
                     <label for="customer_id_combo_box">Customer Id : </label><br>
                     <select id="customer_id_combo_box" name="customer_id_combo_box">
                         <!-- The options will be populated dynamically using JavaScript -->
-                    </select>
+                    </select><br><br>
                 </div>
-                <br>
 
                 <div>
-                    <button id="add_order">Add</button>
+                    <label for="order_customer_name">Customer Name : </label><br>
+                    <input type="text" id="order_customer_name" name="order_customer_name" required><br><br>
+                </div>
+
+
+
+                <div>
+                    <button id="confirm_order">Confirm Order</button>
                 </div>
 
             </form>
@@ -200,17 +203,60 @@
         <div>
             <!-- Cart Table Section -->
             <section id="cart_section">
-                <h2 id="cart_h2">Cart</h2>
-                <table id="cart_table" style="border-collapse: collapse; width: 100%; border: 1px solid black;">
-                    <tr>
-                        <th>Item Code</th>
-                        <th>Description</th>
-                        <th>Unit Price</th>
-                        <th>Quantity</th>
-                    </tr>
+                <p id="cart_head">Cart</p>
 
-                    <!-- The table rows will be populated dynamically using JavaScript -->
-                </table>
+                <form id="cart_form">
+                    <div id="cart_form_first_div">
+                        <div>
+                            <label for="cart_item_code">Item Code : </label><br>
+                            <select id="cart_item_code" name="cart_item_code">
+                                <!-- The options will be populated dynamically using JavaScript -->
+                            </select><br>
+
+                            <label for="cart_qty">Quantity : </label><br>
+                            <input type="text" id="cart_qty" name="cart_qty" required><br>
+                        </div>
+
+                        <div>
+                            <label for="cart_description">Description : </label><br>
+                            <input type="text" id="cart_description" name="cart_description" required><br>
+
+                            <label for="cart_qty_on_hand">Qty On Hand : </label><br>
+                            <input type="text" id="cart_qty_on_hand" name="cart_qty_on_hand" required>
+                        </div>
+
+                        <div>
+                            <label for="cart_unit_price">Unit Price : </label><br>
+                            <input type="text" id="cart_unit_price" name="cart_unit_price" required>
+
+                        </div>
+                    </div>
+
+                    <br>
+                    <div id="add_cart_btn_div">
+                        <button id="add_to_cart">Add To Cart</button>
+                    </div>
+
+                </form>
+
+
+                <div id="cart_table_id">
+
+                    <table id="cartTable">
+                        <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Description</th>
+                            <th>Unit Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Item data will be populated here using JavaScript -->
+                        </tbody>
+                    </table>
+
+                </div>
             </section>
         </div>
 
