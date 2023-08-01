@@ -161,4 +161,80 @@ $(document).on("change", "#cart_item_code", function(event) {
     });
 
 // ====================================================================================
+// Function to get the item list from the cartTable
+function getItemListFromTable() {
+    let itemList = [];
+
+    // Traverse through the rows of the table (excluding the header row)
+    $("#cartTable tbody tr").each(function() {
+        let itemCode = $(this).find("td:nth-child(1)").text();
+        let quantity = parseInt($(this).find("td:nth-child(4)").text());
+
+        // Create an item object with the extracted data
+        let itemData = {
+            "orderId" : $("#order_id").val(),
+            "itemCode": itemCode,
+            "qty": quantity
+        };
+
+        // Add the item object to the itemList array
+        itemList.push(itemData);
+    });
+
+    return itemList;
+}
+// Event listener to confirm the order and send data to the backend
+$("#confirm_order").on("click", function(event) {
+    event.preventDefault();
+
+    // Get the item list from the cartTable
+    let itemList = getItemListFromTable();
+
+    // Create the final order object with all the data
+    let orderData = {
+        "orderId": $("#order_id").val(),
+        "customerId": $("#customer_id_combo_box").val(),
+        "date": $("#date").val(),
+        "itemList": itemList
+    };
+
+    console.log(orderData);
+
+    // Send the orderData object to the backend using AJAX
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/demo1/order", // Replace with the actual URL of your backend API endpoint
+        data: JSON.stringify(orderData),
+        contentType: "application/json",
+        success: function(response) {
+            // Handle the response from the backend (if needed)
+            console.log("Order confirmed successfully!");
+            clearFields ();
+
+        },
+        error: function(error) {
+            // Handle any errors that occurred during the AJAX request (if needed)
+            console.error("Error while confirming order: ", error);
+        }
+    });
+});
+
+function clearFields (){
+    // Clear the form fields for the next entry
+    $("#cart_item_code").val("");
+    $("#cart_description").val("");
+    $("#cart_unit_price").val("");
+    $("#cart_qty").val("");
+
+    // Clear the form fields after successful submission
+    $("#order_id").val("");
+    $("#customer_id_combo_box").val("");
+    $("#date").val("");
+    $("#order_customer_name").val("");
+
+    // Clear the cart table after successful submission
+    $("#cartTable tbody").empty();
+}
+
+//======================================================================================
 
