@@ -102,3 +102,36 @@ function loadItemCodes() {
 // Call the function to load customer IDs into the combo box when the page loads
 loadItemCodes();
 
+// =================================================================================
+
+
+// Add event listener to the combo box to fetch customer data on value change
+$(document).on("change", "#cart_item_code", function(event) {
+    console.log('trigger item data method');
+    // Get the item code from the selected option in the combo box
+    let itemCode = $("#cart_item_code").val();
+
+    // Send the AJAX request to the backend using the GET method
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/demo1/item?code=" + itemCode,
+        dataType: "json",
+        success: function(itemData) {
+            // Populate the form with the received JSON data
+            $("#cart_description").val(itemData.description);
+            $("#cart_qty_on_hand").val(itemData.qtyOnHand);
+            $("#cart_unit_price").val(itemData.unitPrice);
+
+            console.log("Item data retrieved successfully:", itemData);
+        },
+        error: function(error) {
+            // Handle any errors that occurred during the AJAX request (if needed)
+            console.error("Error while retrieving item data: ", error);
+        }
+    });
+    //
+    // // Clear the values of other form fields when a new item code is selected
+    // $("#cart_description").val("");
+    // $("#cart_qty_on_hand").val("");
+    // $("#cart_unit_price").val("");
+});
