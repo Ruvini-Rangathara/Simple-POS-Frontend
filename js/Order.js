@@ -62,3 +62,43 @@ $(document).on("change", "#customer_id_combo_box", function(event) {
         }
     });
 });
+
+// ===============================================================================
+
+// Function to load customer IDs into the combo box
+function loadItemCodes() {
+    // Send an AJAX GET request to the backend to retrieve customer data
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/demo1/item",
+        dataType: "json",
+        success: function(itemsData) {
+            // Get the combo box element
+            const itemComboBox = document.getElementById("cart_item_code");
+
+            // Clear existing options (if any)
+            itemComboBox.innerHTML = "";
+
+            // Iterate through the received JSON array of customers
+            for (let i = 0; i < itemsData.length; i++) {
+                let item = itemsData[i];
+
+                // Create a new option element for each customer ID
+                const option = document.createElement("option");
+                option.value = item.code;
+                option.text = item.code;
+
+                // Add the option to the combo box
+                itemComboBox.appendChild(option);
+            }
+        },
+        error: function(error) {
+            // Handle any errors that occurred during the AJAX request (if needed)
+            console.error("Error while retrieving item data: ", error);
+        }
+    });
+}
+
+// Call the function to load customer IDs into the combo box when the page loads
+loadItemCodes();
+
