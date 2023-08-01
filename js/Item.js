@@ -50,6 +50,7 @@ $('#add_item').on('click', function(event) {
         success: function (response) {
             // Handle the response from the backend (if needed)
             console.log("Save successful!");
+            alert("Item added successfully!");
             clearItemsTable();
             loadAllItems();
             $("#item_form")[0].reset();
@@ -57,6 +58,7 @@ $('#add_item').on('click', function(event) {
         error: function (error) {
             // Handle any errors that occurred during the AJAX request (if needed)
             console.error("Save failed: ", error);
+            alert("Item not added!");
         }
     });
 });
@@ -85,11 +87,13 @@ $('#update_item').on('click',(e)=> {
             clearItemsTable();
             loadAllItems();
             console.log("Update successful!");
+            alert("Item updated successfully!");
             $("#item_form")[0].reset();
         },
         error: function (error) {
             // Handle any errors that occurred during the AJAX request (if needed)
             console.error("Update failed: ", error);
+            alert("Item not updated!");
         }
     });
 });
@@ -116,6 +120,7 @@ $('#delete_item').on('click',(e)=> {
         success: function (response) {
             // Handle the response from the backend (if needed)
             console.log("Delete successful!");
+            alert("Item deleted successfully!");
             clearItemsTable();
             loadAllItems();
             $("#item_form")[0].reset();
@@ -123,6 +128,7 @@ $('#delete_item').on('click',(e)=> {
         error: function (error) {
             // Handle any errors that occurred during the AJAX request (if needed)
             console.error("Delete failed: ", error);
+            alert("Item not deleted!");
         }
     });
 });

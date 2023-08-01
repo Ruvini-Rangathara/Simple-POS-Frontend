@@ -49,6 +49,7 @@ $('#add_customer').on('click', function(event) {
             contentType: "application/json",
             success: function (response) {
                 // Handle the response from the backend (if needed)
+                alert("Customer saved successfully!");
                 console.log("Save successful!");
                 clearCustomerTable();
                 loadAllCustomers();
@@ -57,6 +58,7 @@ $('#add_customer').on('click', function(event) {
             error: function (error) {
                 // Handle any errors that occurred during the AJAX request (if needed)
                 console.error("Save failed: ", error);
+                alert("Customer not saved!");
             }
         });
 });
@@ -83,6 +85,7 @@ $('#update_customer').on('click',(e)=> {
         success: function (response) {
             // Handle the response from the backend (if needed)
             console.log("Update successful!");
+            alert("Customer updated successfully!");
             clearCustomerTable();
             loadAllCustomers();
             $("#customer_form")[0].reset();
@@ -90,6 +93,7 @@ $('#update_customer').on('click',(e)=> {
         error: function (error) {
             // Handle any errors that occurred during the AJAX request (if needed)
             console.error("Update failed: ", error);
+            alert("Customer not updated!");
         }
     });
 });
@@ -116,6 +120,7 @@ $('#delete_customer').on('click',(e)=> {
         success: function (response) {
             // Handle the response from the backend (if needed)
             console.log("Delete successful!");
+            alert("Customer deleted successfully!");
             clearCustomerTable();
             loadAllCustomers();
             $("#customer_form")[0].reset();
@@ -123,6 +128,7 @@ $('#delete_customer').on('click',(e)=> {
         error: function (error) {
             // Handle any errors that occurred during the AJAX request (if needed)
             console.error("Delete failed: ", error);
+            alert("Customer not deleted!");
         }
     });
 });

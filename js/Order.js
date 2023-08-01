@@ -219,12 +219,14 @@ $("#confirm_order").on("click", function(event) {
         success: function(response) {
             // Handle the response from the backend (if needed)
             console.log("Order confirmed successfully!");
+            alert("Order confirmed successfully!");
             clearFields ();
 
         },
         error: function(error) {
             // Handle any errors that occurred during the AJAX request (if needed)
             console.error("Error while confirming order: ", error);
+            alert("Error while confirming order");
         }
     });
 });
