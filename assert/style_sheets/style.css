@@ -252,14 +252,47 @@ input[type="text"], [type="date"], #customer_id_combo_box, #cart_item_code{
 
 
 @media screen and (max-width: 720px) {
+
+    #cart_table_id, #item_table_id, #customer_table_id{
+        width: 450px;
+        margin-top: 50px;
+    }
+
+    .myForm{
+        padding-bottom: 25px;
+        padding-top: 25px;
+    }
+
     .form_div {
         width: 90vw;
+        margin: 0;
         /*height: 70vh;*/
     }
 
+    #cart_form_first_div #cart_item_code, #cart_unit_price, #cart_description, #cart_qty_on_hand, #cart_qty {
+        width: 300px;
+    }
+
+
+    #customer_form_section, #item_form_section, #main_section #order_form_section{
+        padding-right: 0;
+        padding-left: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #customer_form, #item_form{
+        width: 650px;
+    }
+
+    #order_form{
+        width: 400px;
+    }
 
     input[type="text"]{
-        width: 200px;
+        width: 150px;
     }
 
     #add_cart_btn_div{
@@ -276,6 +309,14 @@ input[type="text"], [type="date"], #customer_id_combo_box, #cart_item_code{
         margin-top: 20px;
     }
 
+    #cart_form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 400px;
+    }
 }
 
 @media screen and (max-width: 1200px) {
